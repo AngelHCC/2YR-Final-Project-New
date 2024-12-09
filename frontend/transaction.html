@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    
+    <nav class="bg-blue-600 shadow-md p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-white text-2xl font-bold">Finance App</h1>
+            <ul class="flex space-x-4">
+                <li><a href="dashboard.html" class="text-white hover:underline">Dashboard</a></li>
+                <li><a href="transaction.html" class="text-white hover:underline">Transactions</a></li>
+                <li><a href="savings.html" class="text-white hover:underline">Savings</a></li>
+            </ul>
+            <a href="login.html" class="text-red-400 hover:text-red-200">Logout</a>
+        </div>
+    </nav>
+
+   
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-4">Transactions</h1>
+        <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Add Transaction</h2>
+            <form id="addTransactionForm" class="space-y-4">
+                <div>
+                    <label for="type" class="block text-gray-700">Type:</label>
+                    <select id="type" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="amount" class="block text-gray-700">Amount:</label>
+                    <input type="number" id="amount" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div>
+                    <label for="description" class="block text-gray-700">Description:</label>
+                    <input type="text" id="description" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="button" onclick="addTransaction()" class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Transaction</button>
+            </form>
+        </div>
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">All Transactions</h2>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white rounded-lg shadow-md">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2 border-b-2 border-gray-200 bg-gray-100 text-left text-sm leading-4 text-gray-600 uppercase tracking-wider">Type</th>
+                        <th class="px-4 py-2 border-b-2 border-gray-200 bg-gray-100 text-left text-sm leading-4 text-gray-600 uppercase tracking-wider">Amount</th>
+                        <th class="px-4 py-2 border-b-2 border-gray-200 bg-gray-100 text-left text-sm leading-4 text-gray-600 uppercase tracking-wider">Description</th>
+                        <th class="px-4 py-2 border-b-2 border-gray-200 bg-gray-100 text-left text-sm leading-4 text-gray-600 uppercase tracking-wider">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionsTableBody">
+               
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
